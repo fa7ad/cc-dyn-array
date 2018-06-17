@@ -1,0 +1,6 @@
+{
+  "C_Cpp.default.includePath": [
+    "/usr/lib/include",
+    "/ldata/my-projects/cc-dyn-array"
+  ]
+}

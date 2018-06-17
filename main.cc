@@ -1,11 +1,12 @@
 #include <iostream>
-#include "dynarr.hh"
+#include "dynarr.h"
 
 using namespace std;
 
-int main () {
+int main() {
   // support for all primitive types using templates
-  DynArr<double> da;
+  // support for brace initializer using std::vector, only for initialization
+  DynArr<double> da({1, 200.3, 3, 5});
   // insert at end
   da.insert(100);
   da.insert(106.2);
@@ -21,18 +22,21 @@ int main () {
   // index auto-updates
   da.remove(4);
   // replace/update at specific index
-  // Note: this does not auto update container size
+  // Note: this gives direct access to the underlying C-style array
   da[0] = 103.3;
   da[1] = 104.2;
 
-  // iterators (like STL, except this is without std::iterator class)
-  for (double* it = da.begin(); it != da.end(); it++)
+  // iterators (like STL)
+  for (DynArr<double>::iterator it = da.begin(); it != da.end(); it++)
     cout << *it << endl;
 
-  // size and max_size (also like STL)
-  cout << "max_size: " << da.max_size << " size: " << da.size;
+  for (DynArr<double>::reverse_iterator r = da.rbegin(); r != da.rend(); r--)
+    cout << *r << endl;
 
   // accessor function (like STL, again)
   cout << endl << da.at(0) << endl;
+
+  // size and max_size (also like STL)
+  cout << "max_size: " << da.max_size << " size: " << da.size << endl;
   return 0;
 }
