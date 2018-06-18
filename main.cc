@@ -30,7 +30,9 @@ int main() {
   for (DynArr<double>::iterator it = da.begin(); it != da.end(); it++)
     cout << *it << endl;
 
-  for (DynArr<double>::reverse_iterator r = da.rbegin(); r != da.rend(); r--)
+  cout << endl << "Now, reverse!" << endl;
+
+  for (DynArr<double>::reverse_iterator r = da.rbegin(); r != da.rend(); r++)
     cout << *r << endl;
 
   // accessor function (like STL, again)

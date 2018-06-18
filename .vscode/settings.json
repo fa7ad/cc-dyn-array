@@ -1,6 +1,13 @@
 {
   "C_Cpp.default.includePath": [
     "/usr/lib/include",
-    "/ldata/my-projects/cc-dyn-array"
-  ]
+    "./"
+  ],
+  "files.associations": {
+    "array": "cpp",
+    "string_view": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "initializer_list": "cpp"
+  }
 }
