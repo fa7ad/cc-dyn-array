@@ -3,7 +3,7 @@
 #ifndef DYNARR_HH
 #define DYNARR_HH
 
-#include "dynarriter.h"
+#include "dynarriter.cc"
 typedef unsigned int uint;
 
 template <typename T, uint init_max_size = 1>

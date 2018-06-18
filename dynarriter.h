@@ -6,31 +6,17 @@ class DynArrIter : public std::iterator<std::bidirectional_iterator_tag, P*> {
   P* p;
 
  public:
-  DynArrIter(P* x) : p(x) {}
-  DynArrIter(const DynArrIter& d) : p(d.p) {}
-  DynArrIter& operator++() {
-    p += !back ? 1 : -1;
-    return *this;
-  }
-  DynArrIter operator++(int) {
-    DynArrIter tmp(*this);
-    operator++();
-    return tmp;
-  }
-  DynArrIter& operator--() {
-    p += !back ? -1 : 1;
-    return *this;
-  }
-  DynArrIter operator--(int) {
-    DynArrIter tmp(*this);
-    operator--();
-    return tmp;
-  }
-  bool operator==(const DynArrIter& r) const { return p == r.p; }
-  bool operator!=(const DynArrIter& r) const { return p != r.p; }
-  P& operator*() { return *p; }
-  ptrdiff_t operator-(const DynArrIter& r) const { return p - r.p; }
-  DynArrIter operator-(const ptrdiff_t r) const { return p - r; }
+  DynArrIter(P* x);
+  DynArrIter(const DynArrIter& d);
+  DynArrIter& operator++();
+  DynArrIter operator++(int);
+  DynArrIter& operator--();
+  DynArrIter operator--(int);
+  bool operator==(const DynArrIter& r) const;
+  bool operator!=(const DynArrIter& r) const;
+  P& operator*();
+  ptrdiff_t operator-(const DynArrIter& r) const;
+  DynArrIter operator-(const ptrdiff_t r) const;
 };
 
 #endif  // DYNARRITER_HH
