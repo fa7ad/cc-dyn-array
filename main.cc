@@ -1,11 +1,11 @@
 #include <iostream>
-#include "dynarr.h"
+#include "dynarr.cc"
 
 using namespace std;
 
 int main() {
   // support for all primitive types using templates
-  // support for brace initializer using std::vector, only for initialization
+  // support for brace initializer
   DynArr<double> da({1, 200.3, 3, 5});
   // insert at end
   da.insert(100);
@@ -31,7 +31,6 @@ int main() {
     cout << *it << endl;
 
   cout << endl << "Now, reverse!" << endl;
-
   for (DynArr<double>::reverse_iterator r = da.rbegin(); r != da.rend(); r++)
     cout << *r << endl;
 
@@ -40,5 +39,15 @@ int main() {
 
   // size and max_size (also like STL)
   cout << "max_size: " << da.max_size << " size: " << da.size << endl;
+
+  try {
+    // triggers an exception, index out of bounds
+    cout << da[200] << endl;
+    // removing a non-existent index triggers the same exception
+    // da.remove(9);
+  } catch (DynArrException& e) {
+    cout << e.what();
+  }
+
   return 0;
 }

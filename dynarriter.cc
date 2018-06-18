@@ -4,7 +4,7 @@ template <typename P, bool b>
 DynArrIter<P, b>::DynArrIter(P* x) : p(x) {}
 
 template <typename P, bool b>
-DynArrIter<P, b>::DynArrIter(const DynArrIter& d) : p(d.p) {}
+DynArrIter<P, b>::DynArrIter(const DynArrIter<P, b>& d) : p(d.p) {}
 
 template <typename P, bool b>
 DynArrIter<P, b>& DynArrIter<P, b>::operator++() {
