@@ -36,7 +36,7 @@ public:
   }
   void insert(T data, int in = -1) {
     uint idx = in;
-    if (unsigned(in) == -1 || unsigned(in) > max_size) idx = size;
+    if (in == -1 || in > int(max_size)) idx = size;
     size++;
     for (uint i = size; i > idx; i--) mem[i] = mem[i - 1];
 
